@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Всем посетителям доброго времени суток, любителям кофе отдельный поклон</h2>
+    <p>Итак, разные виды кофе разберем по порядку</p>
+    
+    <form method="POST" action="/">
+        <button type="submit" class="btn-black" style="border: none; cursor: pointer;">Узнать предсказание ✨ </button>
+    </form>
+
+    {% if prediction %}
+        <div style="margin-top: 20px; padding: 20px; background-color: #fff3e0; border-left: 5px solid #d84315; border-radius: 5px;">
+            <p style="margin: 0; font-weight: bold; color: #d84315;">✨ {{ prediction }}</p>
+        </div>
+    {% endif %}
+{% endblock content %}

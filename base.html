@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>БЛОГ КОФЕМАНА</title>
+    
+    <style>
+      
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #3e2723; 
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+        
+        /* ВОТ ТУТ МАГИЯ ФОНА */
+        background-color: #f4f1ea; 
+        background-image: 
+            radial-gradient(#d7ccc8 2px, transparent 1.5px), 
+            radial-gradient(#d7ccc8 2px, transparent 1.5px);
+        background-size: 25px 25px; 
+        background-position: 0 0, 12px 12px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+       h1 {
+        color: #5d4037; 
+        font-size: 42px;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #5d4037;
+        font-size: 42px;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      }
+      .coffee-cup {
+        position: relative;
+        font-size: 40px; 
+        display: inline-block;
+        line-height: 1;
+        margin-left: 10px; 
+      }
+
+      .steam {
+        position: absolute;
+        
+        background: rgba(220, 220, 220, 0.9); 
+        width: 10px; /* Струйки стали толще */
+        height: 20px;
+        border-radius: 50%;
+        bottom: 100%;
+        opacity: 0;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        filter: blur(2px);
+      }
+
+      /* Позиции для трех струек */
+      .s1 { left: 5px; animation: rise 2s infinite ease-out; }
+      .s2 { left: 15px; animation: rise 2s infinite ease-out 0.5s; }
+      .s3 { left: 25px; animation: rise 2s infinite ease-out 1s; }
+
+      
+      @keyframes rise {
+        0% {
+          transform: translateY(0) scale(0.8); 
+          opacity: 0.9; 
+          height: 15px;
+        }
+        50% {
+          opacity: 0.6; 
+        }
+        100% {
+          transform: translateY(-40px) scale(1.2); 
+          opacity: 0;
+          height: 40px; 
+        }
+      }
+       .navigation a {
+        background-color: #f4f1ea;
+        padding: 8px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        color: #5d4037;
+        font-weight: bold;
+        font-size: 15px;
+        transition: 0.3s ease;
+        display: inline-block;
+      }
+
+      .navigation a:hover {
+        background-color: #6d4c41; 
+        color: white;
+        padding: 8px 30px; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+      }
+      .btn-back {
+        background-color: #f4f1ea; 
+        padding: 10px 20px; 
+        border-radius: 20px; 
+        text-decoration: none; 
+        color: #5d4037; 
+        font-weight: bold;
+        transition: 0.3s ease; 
+        display: inline-block;
+        border: 2px solid transparent;
+      }
+
+      .btn-back:hover {
+        background-color: #6d4c41; 
+        color: white;              
+        padding: 10px 35px; 
+      }
+    </style>
+  </head>
+  
+  <body>   
+    <header>
+        <h1 style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+    Блог кофемана
+    <div class="coffee-cup">
+        <span class="steam s1"></span>
+        <span class="steam s2"></span>
+        <span class="steam s3"></span>
+        ☕
+    </div>
+</h1>
+        
+        <nav class="navigation">
+            <a href="/">Главная</a>
+            <a href="/blog">Все посты</a>
+            <a href="/about">Об авторе</a>
+            <a href="/blog/1">Топ 5 сортов</a> 
+        </nav>
+
+        
+        {% block header %}
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+  </body>
+</html>
